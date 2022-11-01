@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:07:05 by lclerc            #+#    #+#             */
-/*   Updated: 2022/10/29 17:30:13 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/10/31 14:40:36 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include <unistd.h> /* for size_t */
 #include <stdlib.h> /* for malloc() */
 #include <string.h> /* for strncmp */
-#include <stddef.h> /******* DELETE, to test on LINUX for size_t */
 
 int	ft_isalpha(int c);
 int ft_isdigit(int c);
@@ -29,5 +28,6 @@ int ft_tolower(int c);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 int ft_strncmp(const char *s1, const char *s2, size_t n);
+void	*ft_memset(void *b, int c, size_t len);
 
 #endif

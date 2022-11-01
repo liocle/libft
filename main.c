@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:45:02 by lclerc            #+#    #+#             */
-/*   Updated: 2022/10/29 17:30:09 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/10/31 17:26:31 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -14,7 +14,10 @@
 #include <ctype.h>
 #include <string.h>
 
+
+int	main(void)
 	{
+	int i;
 	char _isalpha;
 	char _isdigit;
 	char _isalnum;
@@ -28,9 +31,11 @@
 	char *_strchr_string;
 	char _strrchr_char;
 	char *_strrchr_string;
-	char _strncmp_amount_character;
+	int _strncmp_amount_character;
 	char *_strncmp_string1;
 	char *_strncmp_string2;
+	char *_memset;
+	
 
 //	/* Test ft_isalpha.c */
 //	printf("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n*        Checking ft_isalpha()        *\n-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\nRETURN VALUES of isalpha() function returns zero if the character tests false and returns non-zero if the character tests true.\n\n");
@@ -170,15 +175,62 @@
 //	printf("strrchr: String after :%c: is :%s:\n", _strrchr_char, strrchr(_strrchr_string, _strrchr_char ));
 //	/* End of ft_strrchr.c */
 
-	/* Test ft_strncmp.c */
-	printf("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n*        Checking ft_strncmp()        *\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n\n");
-	_strncmp_string1 = "Find character"; /* String to test*/
-	_strncmp_string2 = "Find cha42cter"; /* String to test*/
-	printf("Amount of characters to compare :%d:\n", _strncmp_amount_character); 
-	_strncmp_amount_character = getc(stdin); 
-	printf("ft_strncmp returns :%d:\n", ft_strncmp(_strncmp_string1, _strncmp_string2, _strncmp_amount_character));
-	printf("strncmp returns :%d:\n", strncmp(_strncmp_string1, _strncmp_string2, _strncmp_amount_character));
-	/* End of ft_strncmp.c */
+//	/* Test ft_strncmp.c */
+//	printf("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n*        Checking ft_strncmp()        *\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n\n");
+//	_strncmp_string1 = "12345'\0'789"; /* String to test*/
+//	_strncmp_string2 = "123456889"; /* String to test*/
+////	printf("Amount of characters to compare :%d:\n", _strncmp_amount_character); 
+////	_strncmp_amount_character = getc(stdin); 
+//	_strncmp_amount_character = 0;
+//	printf("String1 is: :%s:\n", _strncmp_string1);
+//	printf("String2 is: :%s:\n", _strncmp_string2);
+//	printf("Amount of character to compare: :%d:\n", _strncmp_amount_character); 
+//	printf("ft_strncmp returns :%d:\n", ft_strncmp(_strncmp_string1, _strncmp_string2, _strncmp_amount_character));
+//	printf("strncmp returns :%d:\n", strncmp(_strncmp_string1, _strncmp_string2, _strncmp_amount_character));
+//	printf("\n");
+//	_strncmp_amount_character = 5;
+//	printf("String1 is: :%s:\n", _strncmp_string1);
+//	printf("String2 is: :%s:\n", _strncmp_string2);
+//	printf("Amount of character to compare: :%d:\n", _strncmp_amount_character); 
+//	printf("ft_strncmp returns :%d:\n", ft_strncmp(_strncmp_string1, _strncmp_string2, _strncmp_amount_character));
+//	printf("strncmp returns :%d:\n", strncmp(_strncmp_string1, _strncmp_string2, _strncmp_amount_character));
+//	printf("\n");
+//	_strncmp_amount_character = 6;
+//	printf("String1 is: :%s:\n", _strncmp_string1);
+//	printf("String2 is: :%s:\n", _strncmp_string2);
+//	printf("Amount of character to compare: :%d:\n", _strncmp_amount_character); 
+//	printf("ft_strncmp returns :%d:\n", ft_strncmp(_strncmp_string1, _strncmp_string2, _strncmp_amount_character));
+//	printf("strncmp returns :%d:\n", strncmp(_strncmp_string1, _strncmp_string2, _strncmp_amount_character));
+//	printf("\n");
+//	_strncmp_amount_character = 7;
+//	printf("String1 is: :%s:\n", _strncmp_string1);
+//	printf("String2 is: :%s:\n", _strncmp_string2);
+//	printf("Amount of character to compare: :%d:\n", _strncmp_amount_character); 
+//	printf("ft_strncmp returns :%d:\n", ft_strncmp(_strncmp_string1, _strncmp_string2, _strncmp_amount_character));
+//	printf("strncmp returns :%d:\n", strncmp(_strncmp_string1, _strncmp_string2, _strncmp_amount_character));
+//	printf("\n");
+//	/* End of ft_strncmp.c */
+
+	/* Test ft_memset.c */
+	printf("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n*        Checking ft_memset()        *\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n\n");
+	_memset_array[10] = {0,1,2,3,4,5,6,7,8,9}; /* Array to test */
+	printf("Type a character to copy to array", _memset_string); 
+	_memset_char = getc(stdin); 
+	printf("The original array is:\n");
+	for(i = 0; i < 10; 1++)
+		printf("%c", _memset_array[i]);
+	printf("\nft_memset: modifies the array: \n");
+	ft_memset(_memset_array, _memset_char, sizeof(char) * 10);
+	for(i = 0; i < 10; 1++)
+		printf("%c", _memset_array[i]);
+	_memset_array[10] = {0,1,2,3,4,5,6,7,8,9}; /* Array to test */
+	printf("Resetting the array:\n");
+	for(i = 0; i < 10; 1++)
+		printf("%c", _memset_array[i]);
+	printf("\nmemset: modifies the array:\n");
+	
+	/* End of ft_memset.c */
+
 
 	return 1;
-	}	
+}	

@@ -6,10 +6,13 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 16:14:13 by lclerc            #+#    #+#             */
-/*   Updated: 2022/10/29 17:30:04 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/10/31 14:41:07 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*
+
+
+
 DESCRIPTION
      The strcmp() and strncmp() functions lexicographically compare the null-terminated
      strings s1 and s2.
@@ -25,14 +28,25 @@ RETURN VALUES
      is greater than `\0'.i
 */
 
+/* Using unsigned char for return value, but what is \200 character mentionned in man page above ??? */
+
+
 #include "libft.h"
 
-int	strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t i;
 	
-	i = 0;
-	while((s1[i] == s2[i]) && ((i + 1) <= n))
+	i = 1;
+	if (n == 0)
+		return (0);
+	while((*s1 == *s2 && (i < n )) && ((*s1 != '\0') && (*s2 != '\0')))
+	{
+		s1++;
+		s2++;
 		i++;
-	return(s1[i] - s2[i]);
 	}
+	return((unsigned char)*s1 - (unsigned char)*s2);
+}
+	
+

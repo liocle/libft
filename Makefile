@@ -6,11 +6,11 @@
 #    By: lclerc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 12:40:47 by lclerc            #+#    #+#              #
-#    Updated: 2022/10/29 17:30:06 by lclerc           ###   ########.fr        #
+#    Updated: 2022/10/31 17:26:28 by lclerc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC= 		gcc ##########change to CC before submitting####
+CC= 		CC
 NAME= 		libft.a
 LFLAGS=		-Wall -Wextra -Werror
 CFLAGS=		-L. -lft
@@ -25,7 +25,8 @@ CFILES=		ft_isalpha.c \
 			ft_tolower.c \
 			ft_strchr.c \
 			ft_strrchr.c \
-			ft_strncmp.c
+			ft_strncmp.c \
+			ft_memset.c
 OBJECTS=	ft_isalpha.o \
 			ft_isdigit.o \
 			ft_isascii.o \
@@ -36,7 +37,8 @@ OBJECTS=	ft_isalpha.o \
 			ft_tolower.o \
 			ft_strchr.o \
 			ft_strrchr.o \
-			ft_strncmp.o
+			ft_strncmp.o \
+			ft_memset.o
 MAIN=		main.c
 
 all: $(NAME)

@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 14:41:44 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/01 13:02:50 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/02 08:43:56 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -22,7 +22,7 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	unsigned char	*pointer_to_b;
+	char	*pointer_to_b;
 	pointer_to_b = (char *)b;
 	
 	while(len--)

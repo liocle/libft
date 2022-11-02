@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:45:02 by lclerc            #+#    #+#             */
-/*   Updated: 2022/10/31 17:26:31 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/01 13:03:31 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -34,8 +34,10 @@ int	main(void)
 	int _strncmp_amount_character;
 	char *_strncmp_string1;
 	char *_strncmp_string2;
-	char *_memset;
-	
+//	int	 _memset_array;
+//	char	*_memset_string;
+//	char	_memset_char;
+
 
 //	/* Test ft_isalpha.c */
 //	printf("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n*        Checking ft_isalpha()        *\n-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\nRETURN VALUES of isalpha() function returns zero if the character tests false and returns non-zero if the character tests true.\n\n");
@@ -211,26 +213,65 @@ int	main(void)
 //	printf("\n");
 //	/* End of ft_strncmp.c */
 
-	/* Test ft_memset.c */
-	printf("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n*        Checking ft_memset()        *\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n\n");
-	_memset_array[10] = {0,1,2,3,4,5,6,7,8,9}; /* Array to test */
-	printf("Type a character to copy to array", _memset_string); 
-	_memset_char = getc(stdin); 
-	printf("The original array is:\n");
-	for(i = 0; i < 10; 1++)
-		printf("%c", _memset_array[i]);
-	printf("\nft_memset: modifies the array: \n");
-	ft_memset(_memset_array, _memset_char, sizeof(char) * 10);
-	for(i = 0; i < 10; 1++)
-		printf("%c", _memset_array[i]);
-	_memset_array[10] = {0,1,2,3,4,5,6,7,8,9}; /* Array to test */
-	printf("Resetting the array:\n");
-	for(i = 0; i < 10; 1++)
-		printf("%c", _memset_array[i]);
-	printf("\nmemset: modifies the array:\n");
+//	/* Test ft_memset.c */
+//	printf("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n*        Checking ft_memset()        *\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n\n");
+//	char ft_memset_array[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+//	char _memset_array[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+//	
+//	printf("Original string\n");
+//	for(i = 0; i < 10; i++)
+//	{
+//		printf("%d", ft_memset_array[i]);
+//	}
+//	printf("\n");
+//
+//	printf("ft_memset rewrites first 5 chars to '0':\n");
+//	ft_memset(ft_memset_array, 0, sizeof(char) * 5);
+//	for(i = 0; i < 10; i++)
+//	{
+//		printf("%d", ft_memset_array[i]);
+//	}
+//	printf("\n");
+//
+//	printf("memset rewrites the first 5 chars to '0':\n");
+//	memset(_memset_array, 0, sizeof(char) * 5);
+//	for(i = 0; i < 10; i++)
+//	{
+//		printf("%d", _memset_array[i]);
+//	}
+//	printf("\n");
+//
+//	/* End of ft_memset.c */
+//
+	/* Test ft_bzero.c */
+	printf("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n*        Checking ft_bzero()        *\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n\n");
+	char ft_bzero_array[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+	char _bzero_array[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 	
-	/* End of ft_memset.c */
+	printf("Original string\n");
+	for(i = 0; i < 10; i++)
+	{
+		printf("%d", ft_bzero_array[i]);
+	}
+	printf("\n");
 
+	printf("ft_bzero rewrites first 5 chars to '0':\n");
+	ft_bzero(ft_bzero_array, sizeof(char) * 5);
+	for(i = 0; i < 10; i++)
+	{
+		printf("%d", ft_bzero_array[i]);
+	}
+	printf("\n");
+
+	printf("bzero rewrites the first 5 chars to '0':\n");
+	bzero(_bzero_array, sizeof(char) * 5);
+	for(i = 0; i < 10; i++)
+	{
+		printf("%d", _bzero_array[i]);
+	}
+	printf("\n");
+
+	/* End of ft_bzero.c */
 
 	return 1;
 }	

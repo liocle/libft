@@ -6,7 +6,7 @@
 #    By: lclerc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 12:40:47 by lclerc            #+#    #+#              #
-#    Updated: 2022/10/31 17:26:28 by lclerc           ###   ########.fr        #
+#    Updated: 2022/11/01 13:02:56 by lclerc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ CFILES=		ft_isalpha.c \
 			ft_strchr.c \
 			ft_strrchr.c \
 			ft_strncmp.c \
-			ft_memset.c
+			ft_memset.c \
+			ft_bezero.c
 OBJECTS=	ft_isalpha.o \
 			ft_isdigit.o \
 			ft_isascii.o \
@@ -38,7 +39,8 @@ OBJECTS=	ft_isalpha.o \
 			ft_strchr.o \
 			ft_strrchr.o \
 			ft_strncmp.o \
-			ft_memset.o
+			ft_memset.o \
+			ft_bzero.o
 MAIN=		main.c
 
 all: $(NAME)

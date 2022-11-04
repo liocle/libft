@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:05:18 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/02 15:51:56 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/04 14:54:57 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,42 @@
  *
  * strlcpy() and  strlcat() take the full size of the destination buffer and 
  * guarantee NUL termination, with the help of dstsize.
+ *  If the return value is >= dstsize, the output string has been truncated. 
+ *  It is the caller's responsibility to handle this.
  *
  * strlcpy() copies up to dstsize - 1 characters from the string src to dst, NUL
  * terminating the result if dstsize is not 0.
  *
  * If the src and dst strings overlap, the behavior is undefined.
+ * Improper use of the strncpy() and strncat() functions can result in buffer o
+ * verflow vulnerabilities.
  * */
+
+#include "libft.h"
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t	len;
+	int	i;
+
+	i =0;
+	len = ft_strlen(src);
+	if (dstsize == 0)
+		return (len);
+	printf("len = :%zu:\n", len);  // PRINTF
+	if(len < dstsize)
+	{
+		//ft_memcpy(dst, src, len + 1); // PRINTF
+//		printf("went throught if ->len = :%zu:\n", len); // PRINTF
+		while(len < dstsize)
+			dst[i] = src[i];
+			len++;
+			i++;
+	}
+		else if(dstsize != 0)
+	{
+		ft_memcpy(dst, src, dstsize - 1);
+		dst[dstsize - 1] = '\0';
+	}
+	return (len);	
+}  

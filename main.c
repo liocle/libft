@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:45:02 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/01 13:03:31 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/04 14:32:04 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -15,7 +15,7 @@
 #include <string.h>
 
 
-int	main(void)
+int	main(int argc, char **argv)
 	{
 	int i;
 	char _isalpha;
@@ -243,35 +243,156 @@ int	main(void)
 //
 //	/* End of ft_memset.c */
 //
-	/* Test ft_bzero.c */
-	printf("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n*        Checking ft_bzero()        *\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n\n");
-	char ft_bzero_array[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-	char _bzero_array[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+//	/* Test ft_bzero.c */
+//	printf("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n*        Checking ft_bzero()        *\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n\n");
+//	char ft_bzero_array[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+//	char _bzero_array[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+//	
+//	printf("Original string\n");
+//	for(i = 0; i < 10; i++)
+//	{
+//		printf("%d", ft_bzero_array[i]);
+//	}
+//	printf("\n");
+//
+//	printf("ft_bzero rewrites first 5 chars to '0':\n");
+//	ft_bzero(ft_bzero_array, sizeof(char) * 5);
+//	for(i = 0; i < 10; i++)
+//	{
+//		printf("%d", ft_bzero_array[i]);
+//	}
+//	printf("\n");
+//
+//	printf("bzero rewrites the first 5 chars to '0':\n");
+//	bzero(_bzero_array, sizeof(char) * 5);
+//	for(i = 0; i < 10; i++)
+//	{
+//		printf("%d", _bzero_array[i]);
+//	}
+//	printf("\n");
+//
+//	/* End of ft_bzero.c */
 	
-	printf("Original string\n");
-	for(i = 0; i < 10; i++)
+//	/* Test ft_memcpy.c */
+//	char src[] = "abcdefghijklmnopqrstuvxyz";
+//	char dst_ft_memcpy[27];
+//	char dst_memcpy[27];
+//	
+//
+//	ft_memcpy(dst_ft_memcpy, src, sizeof(char) * 27);
+//	printf("ft_memcpy copied src to dst as:\n");
+//	printf("dest: %s\n", dst_ft_memcpy);
+//
+//	memcpy(dst_memcpy, src, sizeof(char) * 27);
+//	printf("memcpy copied src to dst as:\n");
+//	printf("dest: %s\n", dst_memcpy);
+//	
+//	/* copys only part of src into dest for testing purposes*/
+//	ft_memcpy(dst_ft_memcpy, src+8, sizeof(char) * 9);
+//	dst_ft_memcpy[9] = '\0';
+//	printf("ft_memcpy copied src to dst as:\n");
+//	printf("dest: %s\n", dst_ft_memcpy);
+//	
+//	ft_memcpy(dst_memcpy, src+8, sizeof(char) * 9);
+//	dst_memcpy[9] = '\0';
+//	printf("memcpy copied src to dst as:\n");
+//	printf("dest: %s\n", dst_memcpy);
+//	/* End of ft_memcpy.c */
+//
+//	
+//	/* Test ft_memmove.c */
+//	char src[] = "abcdefghijklmnopqrstuvxyz";
+//	char dst_ft_memmove[27];
+//	char dst_memmove[27];
+//	
+//
+//	ft_memmove(dst_ft_memmove, src, sizeof(char) * 27);
+//	printf("ft_memmove copied src to dst as:\n");
+//	printf("dest: %s\n", dst_ft_memmove);
+//
+//	memmove(dst_memmove, src, sizeof(char) * 27);
+//	printf("memmove copied src to dst as:\n");
+//	printf("dest: %s\n", dst_memmove);
+//	
+//	/* copys only part of src into dest for testing purposes*/
+//	ft_memmove(src, src+1, sizeof(char) * 9);
+//	printf("ft_memmove copied end of src to overlapping start of src as:\n");
+//	printf("dest: %s\n", src);
+//
+//	char src2[] = "abcdefghijklmnopqrstuvxyz";
+//	memmove(src2, src2+1, sizeof(char) * 9);
+//	printf("memmove did the same:\n");
+//	printf("dest: %s\n", src2);
+//	/* End of ft_memmove.c */
+	
+//	/* Test ft_strlcpy.c */
+//	char src[] = "abcdefghijklmnopqrstuvxyz0123456789";
+//	char dst_ft_strlcpy[27];
+//	char dst_strlcpy[27];
+//
+//	printf("ft_strlcpy copied src to dst as:\n");
+//	printf("dest: %s :%zu:\n", dst_ft_strlcpy, ft_strlcpy(dst_ft_strlcpy, src, sizeof(char) * 13));
+//
+//	printf("strlcpy copied src to dst as:\n");
+//	printf("dest: %s :%zu:\n", dst_strlcpy, strlcpy(dst_strlcpy, src, sizeof(char) * 27));
+//	
+//	/* copys only part of src into dest for testing purposes*/
+//	printf("ft_strlcpy copy to dest more than dstsize:\n");
+//	printf("dest: %s :%zu:\n", dst_ft_strlcpy, ft_strlcpy(dst_ft_strlcpy, src, sizeof(char) * 33));
+//
+//	char src2[] = "abcdefghijklmnopqrstuvxyz";
+//	printf("strlcpy copy to dest more than dstsize:\n");
+//	printf("dest: %s :%zu:\n", dst_strlcpy, strlcpy(dst_strlcpy, src, sizeof(char) * 33));
+//	/* End of ft_strlcpy.c */
+
+//	/* Testing memchr.c */
+//	char str_memchr[] = "john.smith@blabla.com";
+//	
+//	char *position = (char *)ft_memchr(str_memchr, '@',15 );
+//	printf("My Function:\nPosition of returned pointer = :%s:\n", position);
+//	char *domain = (char *)ft_memchr(str_memchr, '@', strlen(str_memchr));
+//	printf("Hostname is :%s:\n", domain);
+//
+//	char *position2 = (char *)memchr(str_memchr, '@', 15);
+//	printf("BSD Function:\nPosition of returned pointer = :%s:\n", position2);
+//	char *domain2 = (char *)memchr(str_memchr, '@', strlen(str_memchr));
+//	printf("Hostname is :%s:\n", domain2);
+//	/* End of testing memchr.c */
+
+//	/* Testing memcmp.c */
+//	char	_memcmp_string1[] = "abcdefghijklmnopqrstuvwxyz";
+//	char	_memcmp_string2[] = "abcdefghijklmnopqrstu";
+//
+//	printf("Comparing string 1 and 2 with \"n\" = 27:\n");
+//	printf("String1 is:\n:%s:\n", _memcmp_string1);
+//	printf("String2 is:\n:%s:\n", _memcmp_string2);
+//	printf("Original memcmp: :%d:\n", memcmp(_memcmp_string1, _memcmp_string2, sizeof(char) * 27));
+//	printf("ft_memcmp:       :%d:\n\n", ft_memcmp(_memcmp_string1, _memcmp_string2, sizeof(char) * 27));
+//	
+//	printf("Let's use a different \"n\" = 4\n");
+//	printf("Original memcmp: :%d:\n", memcmp(_memcmp_string1, _memcmp_string2, sizeof(char) * 1));
+//	printf("ft_memcmp:       :%d:\n", ft_memcmp(_memcmp_string1, _memcmp_string2, sizeof(char) * 1));		
+	/* End of testing memcmp.c */
+
+	/* Testing atoi */
+	int _ft_atoi;
+	int _atoi;
+
+	if(argc == 2)
 	{
-		printf("%d", ft_bzero_array[i]);
+		_ft_atoi =  ft_atoi(argv[1]);
+		_atoi = atoi(argv[1]);
+
+		printf("ft_atoi gives 	:%i:\n", _ft_atoi);
+		printf("Real atoi gives	:%i:\n", _atoi);
 	}
-	printf("\n");
 
-	printf("ft_bzero rewrites first 5 chars to '0':\n");
-	ft_bzero(ft_bzero_array, sizeof(char) * 5);
-	for(i = 0; i < 10; i++)
-	{
-		printf("%d", ft_bzero_array[i]);
-	}
-	printf("\n");
 
-	printf("bzero rewrites the first 5 chars to '0':\n");
-	bzero(_bzero_array, sizeof(char) * 5);
-	for(i = 0; i < 10; i++)
-	{
-		printf("%d", _bzero_array[i]);
-	}
-	printf("\n");
 
-	/* End of ft_bzero.c */
+	/* End of testing atoi */
 
-	return 1;
+
+
+	return (0);
+
 }	

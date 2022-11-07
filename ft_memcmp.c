@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 08:38:29 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/04 11:41:06 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/04 17:52:23 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -37,8 +37,8 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	string2 = (unsigned char*)s2;
 //	if (n == 0)
 //		return(0);
-//	else
-//		while(n-- && (string1++ == string2++));
+//	while(n--)
+//		if (*(string1++) == *string2++));
 //	return((unsigned char)*string1 - (unsigned char)*string2);
 //
 	i = 0;

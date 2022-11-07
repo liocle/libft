@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 12:01:48 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/04 14:58:55 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/04 17:52:43 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -20,17 +20,17 @@ int	ft_atoi(const char *str)
 	sign = 1;
 	while((*str == 32) || ((*str >= 9) && (*str <= 13)))
 		str++;
-	if(*str++ == '-')
-		sign = -1;
-	if(*str++ == '+')
-	printf("Result is %ld\n", result);
-	while(*str >= '0' && *str <= '9')
+	if(*str == '-')
 	{
-		printf("Result is %ld\n", result);
-		printf("someone here entering the while?\n");
-		result = result * 10 + *str - 0;
+		sign = -1;
 		str++;
 	}
-	printf("Result is %ld\n", result);
+	if(*str == '+')
+		str++;
+	while(*str >= '0' && *str <= '9')
+	{
+		result = result * 10 + *str - '0';
+		str++;
+	}
 	return((int)(result * sign));
 }

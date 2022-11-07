@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:45:02 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/04 14:32:04 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/07 14:02:48 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -374,24 +374,85 @@ int	main(int argc, char **argv)
 //	printf("ft_memcmp:       :%d:\n", ft_memcmp(_memcmp_string1, _memcmp_string2, sizeof(char) * 1));		
 	/* End of testing memcmp.c */
 
-	/* Testing atoi */
-	int _ft_atoi;
-	int _atoi;
+//	/* Testing atoi */
+//	int _ft_atoi;
+//	int _atoi;
+//
+//	if(argc == 2)
+//	{
+//		_ft_atoi =  ft_atoi(argv[1]);
+//		_atoi = atoi(argv[1]);
+//
+//		printf("ft_atoi gives 	:%i:\n", _ft_atoi);
+//		printf("Real atoi gives	:%i:\n", _atoi);
+//	}
+//	/* End of testing atoi */
 
-	if(argc == 2)
-	{
-		_ft_atoi =  ft_atoi(argv[1]);
-		_atoi = atoi(argv[1]);
+//	/* Testing ft_strdup */
+//	char *_ft_strdup_string;
+//	char *_strdup_string;
+//
+//	if(argc == 2)
+//	{
+//		_ft_strdup_string = ft_strdup(argv[1]);
+//		_strdup_string = strdup(argv[1]);
+//
+//		printf("ft_strdup gives	:%s:\n", _ft_strdup_string);	
+//		printf("strdup gives	:%s:\n", _strdup_string);	
+//	}
+//	/* End of testing ft_strdup */
+//
+//	/* Testing calloc */
+//	int n;
+//	int *a;
+//
+//	printf("Number of elemnents to be entered:");
+//	scanf("%d", &n);
+//
+//	a = (int*)calloc(n, sizeof(int));
+//	printf("Checking if bzero works: ");
+//	for( i = 0; i < n ; i++)
+//		printf("%d ", a[i]);
+//	printf("\n");
+//	printf("Enter %d numbers:\n", n);
+//	for( i = 0; i < n; i++)
+//		scanf("%d", &a[i]);
+//	printf("The numbers entered are: ");
+//	for( i = 0; i < n ; i++)
+//		printf("%d ", a[i]);
+//	free(a);
+//	/* End of testing calloc */
 
-		printf("ft_atoi gives 	:%i:\n", _ft_atoi);
-		printf("Real atoi gives	:%i:\n", _atoi);
-	}
+//	/* Testing ft_strlcat */
+//	char ft_destination[20] = "1234567890_";
+//	char destination[20] = "1234567890_";
+//	char source[] = "Concatenateme";
+//	size_t	dstsize;
+//	
+//	dstsize = 100; //CHANGE MY NUMBER
+//	printf("Testing strlcat:\n");
+//	printf("The source string to copy to destination is:\n:%s:\n", source);
+//	printf("The destination string to copy to source is:\n:%s:\n", destination);
+//	printf("The returned value is:\n:%lu:\n", strlcat(destination, source, dstsize));
+//	printf("Applying strlcat to source string gives:\n:%s:\n", destination);
+//	
+//	printf("Testing ft_strlcat:\n");
+//	printf("The source string to copy to destination is:\n:%s:\n", source);
+//	printf("The destination string to copy to source is:\n:%s:\n", ft_destination);
+//	printf("The returned value is:\n:%zu:\n", ft_strlcat(ft_destination, source, dstsize));
+//	printf("Applying ft_strlcat to source string gives:\n:%s:\n\n", ft_destination);
 
+	/* Testing ft_strnstr.c */
+	char haystack [] = "haystack";
+	char needle [] = "z";
+	size_t length = 4;
 
+	printf("Looking :%zu: character in my haystack :%s: to find for my needle :%s:\n", length, haystack, needle);
+	printf(":%s: <- ft_strnstir@address	:%p:\n:%s: <- strnstr@address	:%p:\n", ft_strnstr(haystack,needle,length), ft_strnstr(haystack,needle,length), strnstr(haystack,needle,length), strnstr(haystack,needle,length));
 
-	/* End of testing atoi */
-
-
+	printf("Looking :%d: character in my haystack :%s: to find for my needle :%s:\n", 0, haystack, needle);
+	printf(":%s: <- ft_strnstir@address	:%p:\n:%s: <- strnstr@addressi	:%p:\n", ft_strnstr(haystack,needle,0), ft_strnstr(haystack,needle,0), strnstr(haystack,needle,0), strnstr(haystack,needle,0));
+	/* End of  ft_strnstr.c */
 
 	return (0);
 

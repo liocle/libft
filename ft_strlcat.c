@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 13:23:42 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/05 17:06:50 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/08 15:58:45 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
  *    was longer than dstsize (in practice this should not happen as it means that either dstsize is
  *   incorrect or that dst is not a proper string).
  * 	
- *  If the src and  dst strings overlap, the behavior is unndefined.
+ *  If the src and  dst strings overlap, the behavior is undefined.
  *
  * 	strlcat returns the total length of the string 
  * */
@@ -38,12 +38,16 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 	i = 0;
 	src_length = ft_strlen(src);
-	dst_length = ft_strlen(dst);
+	dst_length = 0;
+	if(dst)
+		dst_length = ft_strlen(dst);
 	if(dstsize == 0)
-		return(0);
+		return(src_length);
 	if(dst_length >= dstsize)
-		return(dst_length + src_length);
-	while(dst_length + i < dstsize - 1 && src[i])
+	{
+		return(dstsize + src_length);
+	}
+	while(dst_length + i < dstsize - 1) 
 	{
 		dst[dst_length + i] = src[i];
 		i++;

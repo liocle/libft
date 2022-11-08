@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:45:02 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/07 14:02:48 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/08 16:33:16 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -108,7 +108,7 @@ int	main(int argc, char **argv)
 //
 //	/* Test ft_isprint.c */
 //	printf("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n*        Checking ft_isprint()        *\n-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\nRETURN VALUES of isprint() function returns zero if the character tests false and returns non-zero if the character tests true.\n\n");
-//	_isprint = 424; /* Check ft_isprint with non isprint */
+//	_isprint = 530; /* Check ft_isprint with non isprint */
 //	printf("Check ft_isprint() with a non ascii :%i:, ft_isprint returns: :%d:\n", _isprint, ft_isprint(_isprint));
 //	printf("Check system isprint() with a non ascii :%i:, isprint returns: :%d:\n\n", _isprint, isprint(_isprint));
 //	_isprint = '0'; /* Check ft_isprint with isprint */
@@ -119,7 +119,7 @@ int	main(int argc, char **argv)
 //	printf("\nCheck ft_isprint() with a non letter :%c: ft_isprint returns: :%d:\n", input, ft_isprint(input));
 //	printf("Check system isprint() with a non letter :%c: isprint returns: :%d:\n\n", input, isprint(input));
 //	/* End of test ft_isprint.c */
-//
+
 //	/* Test ft_strlen.c */
 //	printf("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n*        Checking ft_strlen()        *\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n\n");
 //	input = getc(stdin); 
@@ -167,14 +167,17 @@ int	main(int argc, char **argv)
 //	printf("ft_strchr: String after :%c: is :%s:\n", _strchr_char, ft_strchr(_strchr_string, _strchr_char));
 //	printf("strchr: String after :%c: is :%s:\n", _strchr_char, strchr(_strchr_string, _strchr_char ));
 //	/* End of ft_strchr.c */
-
+//
 //	/* Test ft_strrchr.c */
 //	printf("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n*        Checking ft_strrchr()        *\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n\n");
-//	_strrchr_string = "Find character"; /* String to test*/
+//	_strrchr_string = "\0"; /* String to test*/
 //	printf("Type character to truncate string :%s:\n", _strrchr_string); 
 //	_strrchr_char = getc(stdin); 
 //	printf("ft_strrchr: String after :%c: is :%s:\n", _strrchr_char, ft_strrchr(_strrchr_string, _strrchr_char));
 //	printf("strrchr: String after :%c: is :%s:\n", _strrchr_char, strrchr(_strrchr_string, _strrchr_char ));
+//	printf("Let's try with empty string:\n");
+//	printf("ft_strrchr: String after :%c: is :%s:\n", '\0', ft_strrchr(_strrchr_string, _strrchr_char));
+//	printf("strrchr: String after :%c: is :%s:\n", '\0', strrchr(_strrchr_string, _strrchr_char ));
 //	/* End of ft_strrchr.c */
 
 //	/* Test ft_strncmp.c */
@@ -421,20 +424,33 @@ int	main(int argc, char **argv)
 //	for( i = 0; i < n ; i++)
 //		printf("%d ", a[i]);
 //	free(a);
-//	/* End of testing calloc */
-
+////	/* End of testing calloc */
+//
 //	/* Testing ft_strlcat */
-//	char ft_destination[20] = "1234567890_";
-//	char destination[20] = "1234567890_";
-//	char source[] = "Concatenateme";
+//	char ft_destination[0xF] = "nyan !";
+//	char destination[0xF] = "nyan !";
+//	char source[] = "the cake is a lie !\0I'm hidden lol\r\n";
 //	size_t	dstsize;
 //	
-//	dstsize = 100; //CHANGE MY NUMBER
+//	dstsize = 0; //CHANGE MY NUMBER
 //	printf("Testing strlcat:\n");
 //	printf("The source string to copy to destination is:\n:%s:\n", source);
 //	printf("The destination string to copy to source is:\n:%s:\n", destination);
+//	printf("The returned value is:\n:%lu:\n", strlcat(((void *)0), source, dstsize));
+//	printf("Applying strlcat to source string gives:\n:%s:\n\n", destination);
+//	
+//	printf("Testing ft_strlcat:\n");
+//	printf("The source string to copy to destination is:\n:%s:\n", source);
+//	printf("The destination string to copy to source is:\n:%s:\n", ft_destination);
+//	printf("The returned value is:\n:%zu:\n", ft_strlcat(((void *)0), source, dstsize));
+//	printf("Applying ft_strlcat to source string gives:\n:%s:\n\n", ft_destination);
+//
+//	dstsize = 4; //CHANGE MY NUMBER
+//	printf("Testing strlcat with dstsize = 4:\n");
+//	printf("The source string to copy to destination is:\n:%s:\n", source);
+//	printf("The destination string to copy to source is:\n:%s:\n", destination);
 //	printf("The returned value is:\n:%lu:\n", strlcat(destination, source, dstsize));
-//	printf("Applying strlcat to source string gives:\n:%s:\n", destination);
+//	printf("Applying strlcat to source string gives:\n:%s:\n\n", destination);
 //	
 //	printf("Testing ft_strlcat:\n");
 //	printf("The source string to copy to destination is:\n:%s:\n", source);
@@ -443,16 +459,21 @@ int	main(int argc, char **argv)
 //	printf("Applying ft_strlcat to source string gives:\n:%s:\n\n", ft_destination);
 
 	/* Testing ft_strnstr.c */
-	char haystack [] = "haystack";
-	char needle [] = "z";
-	size_t length = 4;
+	char haystack [] = "MZIRIBMZIRIBMZE123";
+	char needle [] = "MZIRIBMZE";
+	size_t length = 10;
+
+	printf("Looking :%zu: character in my haystack :%s: to find for my needle :%s:\n", length, haystack, "z");
+	printf(":%s: <- ft_strnstir@address	:%p:\n:%s: <- strnstr@address	:%p:\n", ft_strnstr(haystack,"z",length), ft_strnstr(haystack,"z",length), strnstr(haystack,"z",length), strnstr(haystack,"z",length));
 
 	printf("Looking :%zu: character in my haystack :%s: to find for my needle :%s:\n", length, haystack, needle);
 	printf(":%s: <- ft_strnstir@address	:%p:\n:%s: <- strnstr@address	:%p:\n", ft_strnstr(haystack,needle,length), ft_strnstr(haystack,needle,length), strnstr(haystack,needle,length), strnstr(haystack,needle,length));
 
-	printf("Looking :%d: character in my haystack :%s: to find for my needle :%s:\n", 0, haystack, needle);
-	printf(":%s: <- ft_strnstir@address	:%p:\n:%s: <- strnstr@addressi	:%p:\n", ft_strnstr(haystack,needle,0), ft_strnstr(haystack,needle,0), strnstr(haystack,needle,0), strnstr(haystack,needle,0));
+	printf("Looking :%d: character in my haystack :%s: to find for my needle :%s:\n", 4, haystack, needle);
+	printf(":%s: <- ft_strnstir@address	:%p:\n:%s: <- strnstr@addressi	:%p:\n", ft_strnstr(haystack,needle,4), ft_strnstr(haystack,needle,4), strnstr(haystack,needle,4), strnstr(haystack,needle,4));
 	/* End of  ft_strnstr.c */
+
+
 
 	return (0);
 

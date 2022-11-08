@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:05:18 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/04 14:54:57 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/07 18:57:35 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,26 +32,17 @@
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	len;
-	int	i;
+	size_t	i;
 
-	i =0;
+	i = 0;
 	len = ft_strlen(src);
 	if (dstsize == 0)
 		return (len);
-	printf("len = :%zu:\n", len);  // PRINTF
-	if(len < dstsize)
+	while (i < dstsize -1 && src[i] != '\0')
 	{
-		//ft_memcpy(dst, src, len + 1); // PRINTF
-//		printf("went throught if ->len = :%zu:\n", len); // PRINTF
-		while(len < dstsize)
 			dst[i] = src[i];
-			len++;
 			i++;
 	}
-		else if(dstsize != 0)
-	{
-		ft_memcpy(dst, src, dstsize - 1);
-		dst[dstsize - 1] = '\0';
-	}
-	return (len);	
-}  
+	dst[i] = '\0';
+	return (len);
+}

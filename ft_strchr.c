@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 18:00:47 by lclerc            #+#    #+#             */
-/*   Updated: 2022/10/29 15:45:22 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/07 19:25:37 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /* DESCRIPTION
@@ -21,17 +21,16 @@ RETURN VALUES
 
 char	*ft_strchr(const char *s, int c)
 {
-	char *p;
+	char	*p;
 
 	p = (char *)s;
-	while(*p)			
+	while (*p)
 	{
-		if(*p == c)
-			return(p);
-		p++;	
+		if (*p == c)
+			return (p);
+		p++;
 	}
-	if((*p == '\0') && (*p == c))
+	if ((*p == '\0') && (*p == c))
 		return (p);
 	return (0);
 }
-

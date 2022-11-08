@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 15:11:14 by lclerc            #+#    #+#             */
-/*   Updated: 2022/10/28 21:27:45 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/07 19:00:57 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -16,4 +16,4 @@ int	ft_isalnum(int c)
 	if (ft_isalpha(c) || ft_isdigit(c))
 		return (1);
 	return (0);
-	}
+}

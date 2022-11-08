@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 15:35:11 by lclerc            #+#    #+#             */
-/*   Updated: 2022/10/29 16:13:33 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/08 10:42:34 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*	The strrchr() function is identical to strchr(), except it locates the last occur-
@@ -16,20 +16,16 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char *p;
-	size_t length;
+	char	*p;
+	size_t	length;
 
-	length =ft_strlen(s);
-
+	length = ft_strlen(s);
 	p = (char *)s;
-	while(p[length] >= 0)			
+	while (length + 1 > 0)
 	{
-		if(p[length] == c)
-			return(&p[length]);
-		length -= 1;	
+		if (p[length] == c)
+			return (p + length);
+		length--;
 	}
-	if((p[length] == '\0') && (p[length] == c))
-		return (&p[length]);
-	return (0);
+	return (NULL);
 }
-

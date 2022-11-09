@@ -5,20 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 15:24:38 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/04 12:04:34 by lclerc           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:07:05 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/02 18:47:43 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/09 13:30:37 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +37,11 @@ size_t	ft_strlcpy(char *dst, const char * src, size_t dstsize);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_atoi(const char *str);
-
+char	*ft_strdup(const char *s1);
+void	*ft_calloc(size_t count, size_t size);
+size_t	ft_strlcat(char * dst, const char * src, size_t dstsize);
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif

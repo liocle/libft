@@ -6,7 +6,7 @@
 #    By: lclerc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 12:40:47 by lclerc            #+#    #+#              #
-#    Updated: 2022/11/04 12:34:31 by lclerc           ###   ########.fr        #
+#    Updated: 2022/11/09 14:14:39 by lclerc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,13 @@ CFILES=		ft_isalpha.c \
 			ft_strlcpy.c \
 			ft_memchr.c \
 			ft_memcmp.c \
-			ft_atoi.c
+			ft_atoi.c \
+			ft_strdup.c \
+			ft_calloc.c \
+			ft_strlcat.c \
+			ft_strnstr.c \
+			ft_substr.c \
+			ft_strjoin.c
 OBJECTS=	ft_isalpha.o \
 			ft_isdigit.o \
 			ft_isascii.o \
@@ -52,7 +58,13 @@ OBJECTS=	ft_isalpha.o \
 			ft_strlcpy.o \
 			ft_memchr.o \
 			ft_memcmp.o \
-			ft_atoi.o
+			ft_atoi.o \
+			ft_strdup.o \
+			ft_calloc.o \
+			ft_strlcat.o \
+			ft_strnstr.o \
+			ft_substr.o \
+			ft_strjoin.o
 MAIN=		main.c
 
 all: $(NAME)
@@ -72,6 +84,16 @@ $(NAME): $(OBJECTS)
 test:
 	@echo "\nCompiling executable with static libft.a library:"
 	$(CC) $(MAIN) $(CFLAGS) 
+
+full: $(NAME)
+	@echo "\nCreating static library libft.a and compiling test enviroment.\n"
+	$(CC) $(MAIN) $(CFLAGS) -fsanitize=address 
+	@./a.out
+
+grep:
+	@ grep --color -irw . -e 'include\|stdio\|printf\|restrict' | grep -v "libft-unit-test\|main.c"
+grepall:
+	@ grep --color -irw . -e 'include\|stdio\|printf\|restrict' 
 
 norminette:
 	@norminette $(CFILES)

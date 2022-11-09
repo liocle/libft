@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:45:02 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/08 16:33:16 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/09 13:51:17 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -458,22 +458,32 @@ int	main(int argc, char **argv)
 //	printf("The returned value is:\n:%zu:\n", ft_strlcat(ft_destination, source, dstsize));
 //	printf("Applying ft_strlcat to source string gives:\n:%s:\n\n", ft_destination);
 
-	/* Testing ft_strnstr.c */
-	char haystack [] = "MZIRIBMZIRIBMZE123";
-	char needle [] = "MZIRIBMZE";
-	size_t length = 10;
+//	/* Testing ft_strnstr.c */
+//	char haystack [] = "MZIRIBMZIRIBMZE123";
+//	char needle [] = "MZIRIBMZE";
+//	size_t length = 10;
+//
+//	printf("Looking :%zu: character in my haystack :%s: to find for my needle :%s:\n", length, haystack, "z");
+//	printf(":%s: <- ft_strnstir@address	:%p:\n:%s: <- strnstr@address	:%p:\n", ft_strnstr(haystack,"z",length), ft_strnstr(haystack,"z",length), strnstr(haystack,"z",length), strnstr(haystack,"z",length));
+//
+//	printf("Looking :%zu: character in my haystack :%s: to find for my needle :%s:\n", length, haystack, needle);
+//	printf(":%s: <- ft_strnstir@address	:%p:\n:%s: <- strnstr@address	:%p:\n", ft_strnstr(haystack,needle,length), ft_strnstr(haystack,needle,length), strnstr(haystack,needle,length), strnstr(haystack,needle,length));
+//
+//	printf("Looking :%d: character in my haystack :%s: to find for my needle :%s:\n", 4, haystack, needle);
+//	printf(":%s: <- ft_strnstir@address	:%p:\n:%s: <- strnstr@addressi	:%p:\n", ft_strnstr(haystack,needle,4), ft_strnstr(haystack,needle,4), strnstr(haystack,needle,4), strnstr(haystack,needle,4));
+//	/* End of  ft_strnstr.c */
 
-	printf("Looking :%zu: character in my haystack :%s: to find for my needle :%s:\n", length, haystack, "z");
-	printf(":%s: <- ft_strnstir@address	:%p:\n:%s: <- strnstr@address	:%p:\n", ft_strnstr(haystack,"z",length), ft_strnstr(haystack,"z",length), strnstr(haystack,"z",length), strnstr(haystack,"z",length));
+	/* Testing ft_substr */
+	char const original_string[] = "i just want this part #############";
+	unsigned int	start;
+	size_t	len;
 
-	printf("Looking :%zu: character in my haystack :%s: to find for my needle :%s:\n", length, haystack, needle);
-	printf(":%s: <- ft_strnstir@address	:%p:\n:%s: <- strnstr@address	:%p:\n", ft_strnstr(haystack,needle,length), ft_strnstr(haystack,needle,length), strnstr(haystack,needle,length), strnstr(haystack,needle,length));
-
-	printf("Looking :%d: character in my haystack :%s: to find for my needle :%s:\n", 4, haystack, needle);
-	printf(":%s: <- ft_strnstir@address	:%p:\n:%s: <- strnstr@addressi	:%p:\n", ft_strnstr(haystack,needle,4), ft_strnstr(haystack,needle,4), strnstr(haystack,needle,4), strnstr(haystack,needle,4));
-	/* End of  ft_strnstr.c */
-
-
+	start = 0;
+	len = 22;
+	printf("Original string :%s:\nStart substringing at :%i: index with :%zu: characters\n", original_string, start, ft_strlen(original_string));
+	printf("Returning string is :%s:\nReturned string has length :%zu:\n", ft_substr(original_string, start, ft_strlen(original_string)), ft_strlen(ft_substr(original_string, start, ft_strlen(original_string))));
+	printf("String compare :%i:\n", strcmp(ft_substr(original_string, start, strlen(original_string)),original_string));
+	/* End of ft_substr */
 
 	return (0);
 

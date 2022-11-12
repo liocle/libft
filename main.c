@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:45:02 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/09 13:51:17 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/12 20:12:13 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -473,17 +473,25 @@ int	main(int argc, char **argv)
 //	printf(":%s: <- ft_strnstir@address	:%p:\n:%s: <- strnstr@addressi	:%p:\n", ft_strnstr(haystack,needle,4), ft_strnstr(haystack,needle,4), strnstr(haystack,needle,4), strnstr(haystack,needle,4));
 //	/* End of  ft_strnstr.c */
 
-	/* Testing ft_substr */
-	char const original_string[] = "i just want this part #############";
-	unsigned int	start;
-	size_t	len;
+//	/* Testing ft_substr */
+//	char const original_string[] = "i just want this part #############";
+//	unsigned int	start;
+//	size_t	len;
+//
+//	start = 0;
+//	len = 22;
+//	printf("Original string :%s:\nStart substringing at :%i: index with :%zu: characters\n", original_string, start, ft_strlen(original_string));
+//	printf("Returning string is :%s:\nReturned string has length :%zu:\n", ft_substr(original_string, start, ft_strlen(original_string)), ft_strlen(ft_substr(original_string, start, ft_strlen(original_string))));
+//	printf("String compare :%i:\n", strcmp(ft_substr(original_string, start, strlen(original_string)),original_string));
+//	/* End of ft_substr */
 
-	start = 0;
-	len = 22;
-	printf("Original string :%s:\nStart substringing at :%i: index with :%zu: characters\n", original_string, start, ft_strlen(original_string));
-	printf("Returning string is :%s:\nReturned string has length :%zu:\n", ft_substr(original_string, start, ft_strlen(original_string)), ft_strlen(ft_substr(original_string, start, ft_strlen(original_string))));
-	printf("String compare :%i:\n", strcmp(ft_substr(original_string, start, strlen(original_string)),original_string));
-	/* End of ft_substr */
+	/* Testing ft_strtrim */
+	char	strtrim_string[] = "12214____921c1"; 
+	char	set[] = "21c";	
+
+	printf("ft_strtrim returns :%s:\n ", ft_strtrim(strtrim_string, set));
+	/* End of ft_strtrim */
+
 
 	return (0);
 

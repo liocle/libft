@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:45:02 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/14 15:51:47 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/14 20:55:55 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -427,8 +427,8 @@ int	main(int argc, char **argv)
 ////	/* End of testing calloc */
 //
 	/* Testing ft_strlcat */
-	char ft_destination[30] = "a";
-	char destination[30] = "a";
+	char ft_destination[30] = "";
+	char destination[30] = "";
 	char source[20] = "CCCCCCCCCCCCCCCA";
 	size_t	dstsize;
 	
@@ -436,13 +436,13 @@ int	main(int argc, char **argv)
 	printf("The destination of my string is:		:%s:\n", destination);
 	printf("The destination of their string is:		:%s:\n", ft_destination);
 	printf("___________________________________________\n");
-	dstsize = 17; //CHANGE MY NUMBER
+	dstsize = 4; //CHANGE MY NUMBER
 	printf("Testing strlcat:\n");
-	printf("Their returned value is:			:%lu:\n", strlcat(destination, source, -1));
+	printf("Their returned value is:			:%lu:\n", strlcat(destination, source, dstsize));
 	printf("Their destination string is:			:%s:\n\n", destination);
 	
 	printf("Testing ft_strlcat:\n");
-	printf("My returned value is:				:%zu:\n", ft_strlcat(ft_destination, source, -1));
+	printf("My returned value is:				:%zu:\n", ft_strlcat(ft_destination, source, dstsize));
 	printf("My destination string is:			:%s:\n\n", ft_destination);
 
 //	dstsize = 4; //CHANGE MY NUMBER

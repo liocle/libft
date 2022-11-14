@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:45:02 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/12 20:12:13 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/14 15:51:47 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -426,25 +426,25 @@ int	main(int argc, char **argv)
 //	free(a);
 ////	/* End of testing calloc */
 //
-//	/* Testing ft_strlcat */
-//	char ft_destination[0xF] = "nyan !";
-//	char destination[0xF] = "nyan !";
-//	char source[] = "the cake is a lie !\0I'm hidden lol\r\n";
-//	size_t	dstsize;
-//	
-//	dstsize = 0; //CHANGE MY NUMBER
-//	printf("Testing strlcat:\n");
-//	printf("The source string to copy to destination is:\n:%s:\n", source);
-//	printf("The destination string to copy to source is:\n:%s:\n", destination);
-//	printf("The returned value is:\n:%lu:\n", strlcat(((void *)0), source, dstsize));
-//	printf("Applying strlcat to source string gives:\n:%s:\n\n", destination);
-//	
-//	printf("Testing ft_strlcat:\n");
-//	printf("The source string to copy to destination is:\n:%s:\n", source);
-//	printf("The destination string to copy to source is:\n:%s:\n", ft_destination);
-//	printf("The returned value is:\n:%zu:\n", ft_strlcat(((void *)0), source, dstsize));
-//	printf("Applying ft_strlcat to source string gives:\n:%s:\n\n", ft_destination);
-//
+	/* Testing ft_strlcat */
+	char ft_destination[30] = "a";
+	char destination[30] = "a";
+	char source[20] = "CCCCCCCCCCCCCCCA";
+	size_t	dstsize;
+	
+	printf("The source string to copy to destination is:	:%s:\n", source);
+	printf("The destination of my string is:		:%s:\n", destination);
+	printf("The destination of their string is:		:%s:\n", ft_destination);
+	printf("___________________________________________\n");
+	dstsize = 17; //CHANGE MY NUMBER
+	printf("Testing strlcat:\n");
+	printf("Their returned value is:			:%lu:\n", strlcat(destination, source, -1));
+	printf("Their destination string is:			:%s:\n\n", destination);
+	
+	printf("Testing ft_strlcat:\n");
+	printf("My returned value is:				:%zu:\n", ft_strlcat(ft_destination, source, -1));
+	printf("My destination string is:			:%s:\n\n", ft_destination);
+
 //	dstsize = 4; //CHANGE MY NUMBER
 //	printf("Testing strlcat with dstsize = 4:\n");
 //	printf("The source string to copy to destination is:\n:%s:\n", source);
@@ -485,12 +485,15 @@ int	main(int argc, char **argv)
 //	printf("String compare :%i:\n", strcmp(ft_substr(original_string, start, strlen(original_string)),original_string));
 //	/* End of ft_substr */
 
-	/* Testing ft_strtrim */
-	char	strtrim_string[] = "12214____921c1"; 
-	char	set[] = "21c";	
-
-	printf("ft_strtrim returns :%s:\n ", ft_strtrim(strtrim_string, set));
-	/* End of ft_strtrim */
+//	/* Testing ft_strtrim */
+//	char	strtrim_string[] = "12214____921c1"; 
+//	char	set[] = "21c";	
+//	char	strtrim_string2[] = ""; 
+//	char	set2[] = "";	
+//
+//	printf("ft_strtrim returns :%s:\n ", ft_strtrim(strtrim_string, set));
+//	printf("ft_strtrim returns :%s:\n ", ft_strtrim(strtrim_string2, set2));
+//	/* End of ft_strtrim */
 
 
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 15:18:03 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/12 20:12:08 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/14 13:49:30 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -31,8 +31,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	bookmark_start = 0;
 	s1_length = ft_strlen(s1);
-	bookmark_end = s1_length -1;
-	while (bookmark_start != bookmark_end && set[i])
+	bookmark_end = s1_length;
+	while (bookmark_start != bookmark_end - 1 && set[i])
 	{
 		if (set[i] != s1[bookmark_start])
 			i++;
@@ -45,7 +45,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	while (bookmark_start != bookmark_end && set[i])
 	{
-		if (set[i] != s1[bookmark_end])
+		if (set[i] != s1[bookmark_end - 1])
 			i++;
 		else
 		{
@@ -53,10 +53,13 @@ char	*ft_strtrim(char const *s1, char const *set)
 			bookmark_end  -= 1;
 		}
 	}
-	trimmed_string = (char *)malloc((bookmark_end - bookmark_start + 2) * 
+//	printf("bookmark_start[%i], bookmark_end[%i]\n", bookmark_start, bookmark_end);
+	trimmed_string = (char *)malloc((bookmark_end - bookmark_start + 1) * 
 			sizeof(char));
 	if (trimmed_string == NULL)
 		return (NULL);
-	ft_strlcpy(trimmed_string, s1 + bookmark_start, (bookmark_end - bookmark_start + 1) + 1);
+	if (bookmark_start == bookmark_end - 1)
+		*trimmed_string = '\0';
+	ft_strlcpy(trimmed_string, s1 + bookmark_start, (bookmark_end - bookmark_start) + 1);
 	return (trimmed_string);
 }

@@ -6,13 +6,22 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:45:02 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/14 20:55:55 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/15 17:46:53 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
 #include "libft.h"
 #include <ctype.h>
 #include <string.h>
+char f(unsigned int i, char c)
+{
+	return (c + i % 10);
+}
+
+void test(char const *s, char (*f)(unsigned int, char))
+{
+	printf("'%s' -> '%s'\n", s, ft_strmapi(s, f));
+}
 
 
 int	main(int argc, char **argv)
@@ -425,25 +434,26 @@ int	main(int argc, char **argv)
 //		printf("%d ", a[i]);
 //	free(a);
 ////	/* End of testing calloc */
-//
-	/* Testing ft_strlcat */
-	char ft_destination[30] = "";
-	char destination[30] = "";
-	char source[20] = "CCCCCCCCCCCCCCCA";
-	size_t	dstsize;
-	
-	printf("The source string to copy to destination is:	:%s:\n", source);
-	printf("The destination of my string is:		:%s:\n", destination);
-	printf("The destination of their string is:		:%s:\n", ft_destination);
-	printf("___________________________________________\n");
-	dstsize = 4; //CHANGE MY NUMBER
-	printf("Testing strlcat:\n");
-	printf("Their returned value is:			:%lu:\n", strlcat(destination, source, dstsize));
-	printf("Their destination string is:			:%s:\n\n", destination);
-	
-	printf("Testing ft_strlcat:\n");
-	printf("My returned value is:				:%zu:\n", ft_strlcat(ft_destination, source, dstsize));
-	printf("My destination string is:			:%s:\n\n", ft_destination);
+//;
+//	/* Testing ft_strlcat */
+//	char ft_destination[15] = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+//	char destination[15] 	= "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+//	char source[6] = "BBBBA";
+//	size_t	dstsize;
+//	
+//	printf("strlen destination is	:%i:\n strlen source is	:%i:\n", strlen(destination), strlen(source));
+//	printf("The source string to copy to destination is:	:%s:\n", source);
+//	printf("The destination of my string is:		:%s:\n", destination);
+//	printf("The destination of their string is:		:%s:\n", ft_destination);
+//	printf("___________________________________________\n");
+//	dstsize = 15; //CHANGE MY NUMBER
+//	printf("Testing strlcat:\n");
+//	printf("Their returned value is:			:%lu:\n", strlcat(destination, source, dstsize));
+//	printf("Their destination string is:			:%s:\n\n", destination);
+//	
+//	printf("Testing ft_strlcat:\n");
+//	printf("My returned value is:				:%zu:\n", ft_strlcat(ft_destination, source, dstsize));
+//	printf("My destination string is:			:%s:\n\n", ft_destination);
 
 //	dstsize = 4; //CHANGE MY NUMBER
 //	printf("Testing strlcat with dstsize = 4:\n");
@@ -458,20 +468,18 @@ int	main(int argc, char **argv)
 //	printf("The returned value is:\n:%zu:\n", ft_strlcat(ft_destination, source, dstsize));
 //	printf("Applying ft_strlcat to source string gives:\n:%s:\n\n", ft_destination);
 
-//	/* Testing ft_strnstr.c */
-//	char haystack [] = "MZIRIBMZIRIBMZE123";
-//	char needle [] = "MZIRIBMZE";
-//	size_t length = 10;
-//
-//	printf("Looking :%zu: character in my haystack :%s: to find for my needle :%s:\n", length, haystack, "z");
-//	printf(":%s: <- ft_strnstir@address	:%p:\n:%s: <- strnstr@address	:%p:\n", ft_strnstr(haystack,"z",length), ft_strnstr(haystack,"z",length), strnstr(haystack,"z",length), strnstr(haystack,"z",length));
-//
-//	printf("Looking :%zu: character in my haystack :%s: to find for my needle :%s:\n", length, haystack, needle);
-//	printf(":%s: <- ft_strnstir@address	:%p:\n:%s: <- strnstr@address	:%p:\n", ft_strnstr(haystack,needle,length), ft_strnstr(haystack,needle,length), strnstr(haystack,needle,length), strnstr(haystack,needle,length));
-//
-//	printf("Looking :%d: character in my haystack :%s: to find for my needle :%s:\n", 4, haystack, needle);
-//	printf(":%s: <- ft_strnstir@address	:%p:\n:%s: <- strnstr@addressi	:%p:\n", ft_strnstr(haystack,needle,4), ft_strnstr(haystack,needle,4), strnstr(haystack,needle,4), strnstr(haystack,needle,4));
-//	/* End of  ft_strnstr.c */
+	/* Testing ft_strnstr.c */
+	char haystack [] = "MMZIRIBMZIRIBMZE123";
+	char needle [] = "MZIR";
+	size_t length = 0;
+
+	printf("Looking :%zu: character in my haystack :%s: to find for my needle :%s:\n", length, haystack, needle);
+	printf(":%s: <- ft_strnstir@address	:%p:\n:%s: <- strnstr@address	:%p:\n\n", ft_strnstr(haystack,needle,length), ft_strnstr(haystack,needle,length), strnstr(haystack,needle,length), strnstr(haystack,needle,length));
+
+	printf("Looking :%zu: character in my haystack :%s: to find for my needle :%s:\n", length, haystack, needle);
+	printf(":%s: <- ft_strnstir@address	:%p:\n:%s: <- strnstr@address	:%p:\n", ft_strnstr(haystack,needle,length), ft_strnstr(haystack,needle,length), strnstr(haystack,needle,length), strnstr(haystack,needle,length));
+
+	/* End of  ft_strnstr.c */
 
 //	/* Testing ft_substr */
 //	char const original_string[] = "i just want this part #############";
@@ -495,7 +503,25 @@ int	main(int argc, char **argv)
 //	printf("ft_strtrim returns :%s:\n ", ft_strtrim(strtrim_string2, set2));
 //	/* End of ft_strtrim */
 
+//	/* Testing of strmapi */
+//	
+//		test("1111111", f);
+//		test("", f);
+//		test("0", f);
+//		return (0);
+//
+//
+//	/* End of testing strmapi */
+//	return (0);
 
-	return (0);
+//	/* testing ft_putnbr_fd */
+//	int putnbr;
+//
+//	putnbr = 123;
+//	printf("Number is :%i:\n putnbr returns :%s:\n ", putnbr, (char *)ft_putnbr_fd(putnbr, 1));
+//
+//
 
+	/* End of ft_putnbr_fd */
 }	
+//

@@ -1,35 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 12:01:48 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/15 17:01:27 by lclerc           ###   ########.fr       */
+/*   Created: 2022/11/15 14:34:04 by lclerc            #+#    #+#             */
+/*   Updated: 2022/11/15 16:23:55 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+/*
+ * Outputs the integer 'n' to the given file descriptor.
+ * write() is authorized.
+ */
+
+ void	ft_putnbr_fd(int n, int fd)
 {
-	long int result;
-	int	sign;
-	
-	result = 0;
-	sign = 1;
-	while((*str == 32) || ((*str >= 9) && (*str <= 13)))
-		str++;
-	if(*str == '-')
+	if (n < 0)
 	{
-		sign = -1;
+		if (n == -2147483648)
+		{
+			ft_putchar_fd('-', fd);
+			ft_putchar_fd('2', fd);
+			n = 147483648;
+		}
+		else 
+		{
+			ft_putchar_fd('-', fd);
+			ft_putnbr_fd(n * -1, fd);
+		}
 	}
-	if(*str == '+' || *str == '-')
-		str++;
-	while(*str >= '0' && *str <= '9')
+	if ( n > 9 )
 	{
-		result = result * 10 + *str - '0';
-		str++;
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
 	}
-	return((int)(result * sign));
+	if (n >= 0 && n <= 9)
+		ft_putchar_fd(n + '0', fd);
 }

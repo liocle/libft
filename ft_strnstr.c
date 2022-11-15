@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 09:38:02 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/08 18:00:53 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/15 17:46:50 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -24,9 +24,6 @@
  * If needle is an empty string			-> haystack is returned.
  * If needle occurs nowhere in haystack -> NULL is returned.
 		return ((char *)haystack);
-		return ((char *)haystack);
-		return ((char *)haystack);
-		return ((char *)haystack);
  * Otherwise, a pointer to the first character of the 1st occurence of needle is
  * returned.
  *
@@ -37,9 +34,11 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	bookmark;
 
 	bookmark = 0;
+	if ( len == 0 && *needle)
+		return (NULL);
 	if (!len || !*needle)
 		return ((char *)haystack);
-	if (ft_strlen(haystack) == 0)
+	if ( ft_strlen(haystack) == 0)
 		return (NULL);
 	while (bookmark <= len && haystack[bookmark] != '\0')
 	{

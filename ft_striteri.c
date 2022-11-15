@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 12:01:48 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/15 17:01:27 by lclerc           ###   ########.fr       */
+/*   Created: 2022/11/15 13:42:08 by lclerc            #+#    #+#             */
+/*   Updated: 2022/11/15 14:33:37 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+/* 
+ * Applies the function 'f' on each character of the string passed as argument,
+ * passing its index as first argument. Each character is passed by address to
+ * 'f' to be modified if necessary. 
+ *
+ */
+
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	long int result;
-	int	sign;
-	
-	result = 0;
-	sign = 1;
-	while((*str == 32) || ((*str >= 9) && (*str <= 13)))
-		str++;
-	if(*str == '-')
+	size_t i;
+
+	i = 0;
+	if (!s)
+		return;
+	while (s[i])
 	{
-		sign = -1;
-	}
-	if(*str == '+' || *str == '-')
-		str++;
-	while(*str >= '0' && *str <= '9')
-	{
-		result = result * 10 + *str - '0';
-		str++;
-	}
-	return((int)(result * sign));
+		f((unsigned int) i, &s[i]);
+		i++;
+	}	
 }

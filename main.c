@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:45:02 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/15 17:46:53 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/16 16:50:20 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -17,6 +17,26 @@ char f(unsigned int i, char c)
 {
 	return (c + i % 10);
 }
+
+
+void	test_split(char const *s, char c)
+{
+	char	**res;
+	int		i;
+
+	printf("____________________\nsplitting '%s' by '%c'\n____\n", s, c);
+	res = ft_split(s, c);
+	i = 0;
+	while (res[i])
+	{
+		printf("%s\n", res[i]);
+		i++;
+	}
+	printf("\n\n\n ");
+}
+
+
+
 
 void test(char const *s, char (*f)(unsigned int, char))
 {
@@ -36,8 +56,6 @@ int	main(int argc, char **argv)
 	char input;
 	char _toupper;
 	char _tolower;
-	char _strchr_char;
-	char *_strchr_string;
 	char _strrchr_char;
 	char *_strrchr_string;
 	int _strncmp_amount_character;
@@ -169,15 +187,17 @@ int	main(int argc, char **argv)
 //	/* End of test ft_tolower.c */
 
 //	/* Test ft_strchr.c */
-//	printf("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n*        Checking ft_strchr()        *\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n\n");
+//	char _strchr_char;
+//	char *_strchr_string;
+//
 //	_strchr_string = "Find character"; /* String to test*/
 //	printf("Type character to truncate string :%s:\n", _strchr_string); 
-//	_strchr_char = getc(stdin); 
-//	printf("ft_strchr: String after :%c: is :%s:\n", _strchr_char, ft_strchr(_strchr_string, _strchr_char));
-//	printf("strchr: String after :%c: is :%s:\n", _strchr_char, strchr(_strchr_string, _strchr_char ));
+////	_strchr_char = getc(stdin); 
+//	printf(":%c: obtained string :%s: ft_strchr: \n", _strchr_char, ft_strchr(_strchr_string, 't' + 256));
+//	printf(":%c: obtained string :%s: strchr:\n", _strchr_char, strchr(_strchr_string, 't' + 256));
 //	/* End of ft_strchr.c */
 //
-//	/* Test ft_strrchr.c */
+	/* Test ft_strrchr.c */
 //	printf("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n*        Checking ft_strrchr()        *\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-\n\n");
 //	_strrchr_string = "\0"; /* String to test*/
 //	printf("Type character to truncate string :%s:\n", _strrchr_string); 
@@ -414,14 +434,14 @@ int	main(int argc, char **argv)
 //	}
 //	/* End of testing ft_strdup */
 //
-//	/* Testing calloc */
-//	int n;
-//	int *a;
-//
+	/* Testing calloc */
+	int n;
+	int *a;
+
 //	printf("Number of elemnents to be entered:");
 //	scanf("%d", &n);
 //
-//	a = (int*)calloc(n, sizeof(int));
+//	a = (int*)calloc(SIZE_MAX, SIZE_MAX);
 //	printf("Checking if bzero works: ");
 //	for( i = 0; i < n ; i++)
 //		printf("%d ", a[i]);
@@ -431,9 +451,24 @@ int	main(int argc, char **argv)
 //		scanf("%d", &a[i]);
 //	printf("The numbers entered are: ");
 //	for( i = 0; i < n ; i++)
-//		printf("%d ", a[i]);
+//		printf(":%d: ", a[i]);
 //	free(a);
-////	/* End of testing calloc */
+//
+//	printf("\n__________\n");
+//	printf("Testing ft_calloc\n");
+//	a = (int*)ft_calloc(SIZE_MAX, SIZE_MAX);
+//	printf("Checking if bzero works: ");
+//	for( i = 0; i < n ; i++)
+//		printf("%d ", a[i]);
+//	printf("\n");
+//	printf("Enter %d numbers:\n", n);
+//	for( i = 0; i < n; i++)
+//		scanf("%d", &a[i]);
+//	printf("The numbers entered are: ");
+//	for( i = 0; i < n ; i++)
+//		printf(":%d: ", a[i]);
+//	free(a);
+//	/* End of testing calloc */
 //;
 //	/* Testing ft_strlcat */
 //	char ft_destination[15] = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
@@ -468,18 +503,18 @@ int	main(int argc, char **argv)
 //	printf("The returned value is:\n:%zu:\n", ft_strlcat(ft_destination, source, dstsize));
 //	printf("Applying ft_strlcat to source string gives:\n:%s:\n\n", ft_destination);
 
-	/* Testing ft_strnstr.c */
-	char haystack [] = "MMZIRIBMZIRIBMZE123";
-	char needle [] = "MZIR";
-	size_t length = 0;
-
-	printf("Looking :%zu: character in my haystack :%s: to find for my needle :%s:\n", length, haystack, needle);
-	printf(":%s: <- ft_strnstir@address	:%p:\n:%s: <- strnstr@address	:%p:\n\n", ft_strnstr(haystack,needle,length), ft_strnstr(haystack,needle,length), strnstr(haystack,needle,length), strnstr(haystack,needle,length));
-
-	printf("Looking :%zu: character in my haystack :%s: to find for my needle :%s:\n", length, haystack, needle);
-	printf(":%s: <- ft_strnstir@address	:%p:\n:%s: <- strnstr@address	:%p:\n", ft_strnstr(haystack,needle,length), ft_strnstr(haystack,needle,length), strnstr(haystack,needle,length), strnstr(haystack,needle,length));
-
-	/* End of  ft_strnstr.c */
+//	/* Testing ft_strnstr.c */
+//	char haystack [] = "MMZIRIBMZIRIBMZE123";
+//	char needle [] = "MZIR";
+//	size_t length = 0;
+//
+//	printf("Looking :%zu: character in my haystack :%s: to find for my needle :%s:\n", length, haystack, needle);
+//	printf(":%s: <- ft_strnstir@address	:%p:\n:%s: <- strnstr@address	:%p:\n\n", ft_strnstr(haystack,needle,length), ft_strnstr(haystack,needle,length), strnstr(haystack,needle,length), strnstr(haystack,needle,length));
+//
+//	printf("Looking :%zu: character in my haystack :%s: to find for my needle :%s:\n", length, haystack, needle);
+//	printf(":%s: <- ft_strnstir@address	:%p:\n:%s: <- strnstr@address	:%p:\n", ft_strnstr(haystack,needle,length), ft_strnstr(haystack,needle,length), strnstr(haystack,needle,length), strnstr(haystack,needle,length));
+//
+//	/* End of  ft_strnstr.c */
 
 //	/* Testing ft_substr */
 //	char const original_string[] = "i just want this part #############";
@@ -492,7 +527,7 @@ int	main(int argc, char **argv)
 //	printf("Returning string is :%s:\nReturned string has length :%zu:\n", ft_substr(original_string, start, ft_strlen(original_string)), ft_strlen(ft_substr(original_string, start, ft_strlen(original_string))));
 //	printf("String compare :%i:\n", strcmp(ft_substr(original_string, start, strlen(original_string)),original_string));
 //	/* End of ft_substr */
-
+//
 //	/* Testing ft_strtrim */
 //	char	strtrim_string[] = "12214____921c1"; 
 //	char	set[] = "21c";	
@@ -523,5 +558,20 @@ int	main(int argc, char **argv)
 //
 
 	/* End of ft_putnbr_fd */
+	
+	/* Testing split */
+		/* HELPER FUNCTION ABOVE AS test_split */
+
+	test_split(" 12345 678 ", ' ');
+	test_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
+	test_split("   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ');
+	test_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'i');
+	test_split("          ", ' ');
+	test_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'z'); 
+	test_split("tripouille", 'tripouille ');
+
+	/* End of split */
+
+	return (0);
 }	
 //

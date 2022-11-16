@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:48:37 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/12 14:52:20 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/16 17:33:00 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -30,9 +30,9 @@ static int get_amount_of_words(char const *s, char c)
 }
 
 
-static void clean_array_of_words(char *array_of_words) 
+static void clean_array_of_words(char **array_of_words) 
 {
-			while(array_of_words)
+			while(*array_of_words)
 			{
 				free(array_of_words--);
 			}
@@ -42,26 +42,32 @@ static void  make_matrix(char const *s, char c, char  **array_of_words)
 {
 	int bookmark;
 	int	i;
+	int j;
 
 	bookmark = 0;
 	i = 0;
+	j = 0;
 	while (s[bookmark + i])
 	{
 		while (s[bookmark] && s[bookmark] == c)
 			bookmark++;
 		while (s[bookmark + i] && s[bookmark + i] != c)
 			i++;
-		*array_of_words = (char *)malloc(sizeof(char) * (i + 1));
+//		*array_of_words = (char *)malloc(sizeof(char) * (i + 1));
+		array_of_words[j]=ft_substr(s, bookmark, i);
+
 		if (*array_of_words == NULL)
-			clean_array_of_words(*array_of_words);
-		else if (*array_of_words != NULL)
-		{
-			ft_strlcpy(*array_of_words, s + bookmark, i + 1);
-			(*array_of_words)[i] = '\0';
-			bookmark += i;
-			array_of_words++;
-        	i = 0;
-		}
+			clean_array_of_words(&array_of_words[j]);
+		else
+			j++;
+//		else if (*array_of_words != NULL)
+//		{
+//			ft_strlcpy(*array_of_words, s + bookmark, i + 1);
+//			(*array_of_words)[i] = '\0';
+		bookmark += i;
+//			array_of_words++;
+       	i = 0;
+//		}
 	}
 }
 

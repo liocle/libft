@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:45:02 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/16 16:50:20 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/18 14:59:09 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -18,31 +18,40 @@ char f(unsigned int i, char c)
 	return (c + i % 10);
 }
 
-
-void	test_split(char const *s, char c)
-{
-	char	**res;
-	int		i;
-
-	printf("____________________\nsplitting '%s' by '%c'\n____\n", s, c);
-	res = ft_split(s, c);
-	i = 0;
-	while (res[i])
-	{
-		printf("%s\n", res[i]);
-		i++;
-	}
-	printf("\n\n\n ");
-}
-
-
-
-
-void test(char const *s, char (*f)(unsigned int, char))
-{
-	printf("'%s' -> '%s'\n", s, ft_strmapi(s, f));
-}
-
+//void	test_split(char const *s, char c)
+//{
+//	char	**res;
+//	int		i;
+//	int 	j;
+//	int		k;
+//
+//	printf("____________________\nsplitting '%s' by '%c'\n____\n", s, c);
+//	res = ft_split(s, c);
+//	i = 0;
+//	j = 0;
+//	k = 0;
+//	while (res[i])
+//	{
+//		while (res[i][j])
+//		{
+//			printf("*res:%p: - res:%p: - *res:%s: - res[i][j]:%c:\n",*res+i, res+k, res[i], res[i][j]);
+//			k++;
+//			j++;
+//		}
+//		i++;
+//		j=0;
+//	}
+//	printf(":%p: :%s:\n\n", res, res[i]);
+//}
+//
+//
+//
+//
+//void test(char const *s, char (*f)(unsigned int, char))
+//{
+//	printf("'%s' -> '%s'\n", s, ft_strmapi(s, f));
+//}
+//
 
 int	main(int argc, char **argv)
 	{
@@ -557,21 +566,64 @@ int	main(int argc, char **argv)
 //
 //
 
-	/* End of ft_putnbr_fd */
+//	/* End of ft_putnbr_fd */
+//	
+//	/* Testing split */
+//		/* HELPER FUNCTION ABOVE AS test_split */
+//
+//	test_split(" 12 45 78 ", ' ');
+//	test_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
+//	test_split("   lorem   ipsum dolor     sit amet, consectetur   adipiscing
+//			elit. Sed non risus. Suspendisse   ", ' ');
+//	test_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+//			non risus. Suspendisse lectus tortor, dignissim sit amet,
+//			adipiscing nec, ultricies sed, dolor. Cras elementum ultricies
+//			diam. Maecenas ligula massa, varius a, semper congue, euismod non,
+//			mi.", 'i');
+//	test_split("          ", ' ');
+//	test_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+//			non risus. Suspendisse lectus tortor, dignissim sit amet,
+//			adipiscing nec, ultricies sed, dolor. Cras elementum ultricies
+//			diam. Maecenas ligula massa, varius a, semper congue, euismod non,
+//			mi.", 'z'); 
+//	test_split("tripouille", 0);
+//
+//	/* End of split */
 	
-	/* Testing split */
-		/* HELPER FUNCTION ABOVE AS test_split */
+//	/* Testing lstnew */
+//	t_list	*lstnew_my_list;
+//	char	*lstnew_my_data;
+//
+//	lstnew_my_data = "This is my data string.";
+//	lstnew_my_list = ft_lstnew(lstnew_my_data);
+//	printf("%s\n", lstnew_my_list->content);
+//	/* End of test lstnew */
 
-	test_split(" 12345 678 ", ' ');
-	test_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
-	test_split("   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ');
-	test_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'i');
-	test_split("          ", ' ');
-	test_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'z'); 
-	test_split("tripouille", 'tripouille ');
+	/* Testing ft_lstadd_front */
+//	/* Needs putlist() above */	
+//	
+//	t_list	*my_list;
+//	char	*my_data;
+//	char	*my_data2;
+//	
+//	my_data = "This is my data string.";
+//	my_list = ft_lstnew(my_data);
+//	my_data2 = "Second string lmao.";
+//	printf("---BEFORE---\n");
+//	printf("%s\n", my_list->content);
+//	ft_lstadd_front(&my_list, my_data2);
+//	printf("---AFTER----\n");
+//	while (my_list != 0)
+//	{
+//		printf("%s\n", my_list->content);
+//		my_list = my_list->next;
+//	}
+//	return (0);
+//	
+//	
+//	/* End of ft_lstadd_front */
 
-	/* End of split */
-
+	
 	return (0);
 }	
 //

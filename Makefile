@@ -6,7 +6,7 @@
 #    By: lclerc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 12:40:47 by lclerc            #+#    #+#              #
-#    Updated: 2022/11/09 14:14:39 by lclerc           ###   ########.fr        #
+#    Updated: 2022/11/18 17:43:12 by lclerc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ CFILES=		ft_isalpha.c \
 			ft_strrchr.c \
 			ft_strncmp.c \
 			ft_memset.c \
-			ft_bezero.c \
+			ft_bzero.c \
 			ft_memcpy.c \
 			ft_memmove.c \
 			ft_strlcpy.c \
@@ -39,32 +39,23 @@ CFILES=		ft_isalpha.c \
 			ft_strlcat.c \
 			ft_strnstr.c \
 			ft_substr.c \
-			ft_strjoin.c
-OBJECTS=	ft_isalpha.o \
-			ft_isdigit.o \
-			ft_isascii.o \
-			ft_isalnum.o \
-			ft_isprint.o \
-			ft_strlen.o \
-			ft_toupper.o \
-			ft_tolower.o \
-			ft_strchr.o \
-			ft_strrchr.o \
-			ft_strncmp.o \
-			ft_memset.o \
-			ft_bzero.o \
-			ft_memcpy.o \
-			ft_memmove.o \
-			ft_strlcpy.o \
-			ft_memchr.o \
-			ft_memcmp.o \
-			ft_atoi.o \
-			ft_strdup.o \
-			ft_calloc.o \
-			ft_strlcat.o \
-			ft_strnstr.o \
-			ft_substr.o \
-			ft_strjoin.o
+			ft_strjoin.c \
+			ft_putchar_fd.c \
+			ft_putstr_fd.c \
+			ft_putendl_fd.c \
+			ft_itoa.c \
+			ft_split.c \
+			ft_strtrim.c \
+			ft_strmapi.c \
+			ft_striteri.c \
+			ft_putnbr_fd.c \
+			ft_lstnew_bonus.c \
+			ft_lstadd_front_bonus.c \
+			ft_lstsize_bonus.c \
+			ft_lstlast_bonus.c \
+			ft_lstadd_back_bonus.c \
+			ft_lstdelone_bonus.c
+OBJECTS=	$(CFILES:%.c=%.o)
 MAIN=		main.c
 
 all: $(NAME)
@@ -87,7 +78,7 @@ test:
 
 full: $(NAME)
 	@echo "\nCreating static library libft.a and compiling test enviroment.\n"
-	$(CC) $(MAIN) $(CFLAGS) -fsanitize=address 
+	$(CC) $(MAIN) $(CFLAGS) -g -fsanitize=address 
 	@./a.out
 
 grep:
@@ -96,7 +87,7 @@ grepall:
 	@ grep --color -irw . -e 'include\|stdio\|printf\|restrict' 
 
 norminette:
-	@norminette $(CFILES)
+	@norminette $(CFILES) libft.h Makefile
 
 clean:
 	/bin/rm -f $(OBJECTS)

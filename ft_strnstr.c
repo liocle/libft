@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lclerc <lclerc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 09:38:02 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/15 17:46:50 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/22 17:35:49 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
 /*
  * The strnstr() locates the first occurence of the NULL-terminated string needle
@@ -28,17 +27,20 @@
  * returned.
  *
  */
-char *ft_strnstr(const char *haystack, const char *needle, size_t len)
+
+#include "libft.h"
+
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;	
 	size_t	bookmark;
 
 	bookmark = 0;
-	if ( len == 0 && *needle)
+	if (len == 0 && *needle)
 		return (NULL);
 	if (!len || !*needle)
 		return ((char *)haystack);
-	if ( ft_strlen(haystack) == 0)
+	if (ft_strlen(haystack) == 0)
 		return (NULL);
 	while (bookmark <= len && haystack[bookmark] != '\0')
 	{

@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lclerc <lclerc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 15:18:03 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/14 13:49:30 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/22 17:23:15 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
 /*
  *	Allocates with malloc() and returns a copy of 's1' with the characters
@@ -18,48 +17,65 @@
  * 	Returns the trimmed string or NULL if the allocaiton fails.
  */
 
-char	*ft_strtrim(char const *s1, char const *set)
-{
-	char	*trimmed_string;
-	int	s1_length;
-	int	bookmark_start;
-	int	bookmark_end;
-	int	i;
+#include "libft.h"
 
-	if (!s1)
-		return (NULL);
+static int	find_start(char const *s1, char const *set)
+{
+	size_t	i;
+	int		end;
+	int		start;
+
 	i = 0;
-	bookmark_start = 0;
-	s1_length = ft_strlen(s1);
-	bookmark_end = s1_length;
-	while (bookmark_start != bookmark_end - 1 && set[i])
+	start = 0;
+	end = ft_strlen(s1);
+	while (start != end - 1 && set[i])
 	{
-		if (set[i] != s1[bookmark_start])
-			i++;
-		else 
-		{
-			i = 0;
-			bookmark_start += 1;
-		}
-	}
-	i = 0;
-	while (bookmark_start != bookmark_end && set[i])
-	{
-		if (set[i] != s1[bookmark_end - 1])
+		if (set[i] != s1[start])
 			i++;
 		else
 		{
 			i = 0;
-			bookmark_end  -= 1;
+			start += 1;
 		}
 	}
-//	printf("bookmark_start[%i], bookmark_end[%i]\n", bookmark_start, bookmark_end);
-	trimmed_string = (char *)malloc((bookmark_end - bookmark_start + 1) * 
-			sizeof(char));
-	if (trimmed_string == NULL)
+	return (start);
+}
+
+static int	find_end(char const *s1, char const *set, int mark_start)
+{
+	size_t	i;
+	int		end;
+
+	i = 0;
+	end = ft_strlen(s1);
+	while (mark_start != end && set[i])
+	{
+		if (set[i] != s1[end - 1])
+			i++;
+		else
+		{
+			i = 0;
+			end -= 1;
+		}
+	}
+	return (end);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	char	*trimmed_str;
+	int		mark_start;
+	int		mark_end;
+
+	if (!s1 || !set)
 		return (NULL);
-	if (bookmark_start == bookmark_end - 1)
-		*trimmed_string = '\0';
-	ft_strlcpy(trimmed_string, s1 + bookmark_start, (bookmark_end - bookmark_start) + 1);
-	return (trimmed_string);
+	mark_start = find_start(s1, set);
+	mark_end = find_end(s1, set, mark_start);
+	trimmed_str = (char *)malloc((mark_end - mark_start + 1) * sizeof(char));
+	if (trimmed_str == NULL)
+		return (NULL);
+	if (mark_start == mark_end - 1)
+		*trimmed_str = '\0';
+	ft_strlcpy(trimmed_str, s1 + mark_start, (mark_end - mark_start) + 1);
+	return (trimmed_str);
 }

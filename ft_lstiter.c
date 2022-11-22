@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lclerc <lclerc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 12:01:48 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/22 13:02:52 by lclerc           ###   ########.fr       */
+/*   Created: 2022/11/21 11:34:40 by lclerc            #+#    #+#             */
+/*   Updated: 2022/11/22 17:38:47 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
-{
-	long	result;
-	int		sign;
+/*
+ * ft_lstiter_bonus() iterates the list 'lst' and applies the function 'f' on 
+ * content of each node.
+ *
+ * 'lst' is the address of a pointer to a node.
+ * 'f' is the address of the function used to iterate on the list.
+ *
+ */
 
-	result = 0;
-	sign = 1;
-	while ((*str == 32) || ((*str >= 9) && (*str <= 13)))
-		str++;
-	if (*str == '-')
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	while (lst)
 	{
-		sign = -1;
+		f(lst->content);
+		lst = lst->next;
 	}
-	if (*str == '+' || *str == '-')
-		str++;
-	while (*str >= '0' && *str <= '9')
-	{
-		result = result * 10 + *str - '0';
-		str++;
-	}
-	return ((int)(result * sign));
 }

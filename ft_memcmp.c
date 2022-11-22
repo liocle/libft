@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lclerc <lclerc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 08:38:29 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/04 17:52:23 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/22 17:43:33 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
 /*
  *	memcmp() compares binary byte buffers of N bytes between s1 and s2.
@@ -26,26 +25,21 @@
  *  Last argument is number of bytes to compare.
  */
 
+#include "libft.h"
+
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t i;
+	size_t			i;
+	unsigned char	*string1;
+	unsigned char	*string2;
 
-	unsigned char* string1;
-	unsigned char* string2;
-	
-	string1 = (unsigned char*)s1;
-	string2 = (unsigned char*)s2;
-//	if (n == 0)
-//		return(0);
-//	while(n--)
-//		if (*(string1++) == *string2++));
-//	return((unsigned char)*string1 - (unsigned char)*string2);
-//
+	string1 = (unsigned char *)s1;
+	string2 = (unsigned char *)s2;
 	i = 0;
-	while(i < n)
+	while (i < n)
 	{
-		if(string1[i] != string2[i])
-			return((unsigned char)string1[i] - (unsigned char)string2[i]);
+		if (string1[i] != string2[i])
+			return ((unsigned char)string1[i] - (unsigned char)string2[i]);
 		i++;
 	}
 	return (0);

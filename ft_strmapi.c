@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lclerc <lclerc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 11:44:21 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/15 14:19:37 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/22 17:34:49 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
 /*
  * Applies the function 'f' to each character of the string 's' and passing 
@@ -21,12 +20,14 @@
  * Returns NULL if the allocation fails.
  */
 
+#include "libft.h"
+
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	size_t	s_length;
 	size_t	i;
 	char	*ptr_to_s;
-	
+
 	i = 0;
 	if (!s)
 		return (NULL);
@@ -42,4 +43,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	ptr_to_s[s_length] = '\0';
 	return (ptr_to_s);
 }
-

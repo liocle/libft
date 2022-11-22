@@ -6,7 +6,7 @@
 /*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:45:02 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/18 14:59:09 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/22 15:40:20 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -536,16 +536,16 @@ int	main(int argc, char **argv)
 //	printf("Returning string is :%s:\nReturned string has length :%zu:\n", ft_substr(original_string, start, ft_strlen(original_string)), ft_strlen(ft_substr(original_string, start, ft_strlen(original_string))));
 //	printf("String compare :%i:\n", strcmp(ft_substr(original_string, start, strlen(original_string)),original_string));
 //	/* End of ft_substr */
-//
-//	/* Testing ft_strtrim */
-//	char	strtrim_string[] = "12214____921c1"; 
-//	char	set[] = "21c";	
-//	char	strtrim_string2[] = ""; 
-//	char	set2[] = "";	
-//
-//	printf("ft_strtrim returns :%s:\n ", ft_strtrim(strtrim_string, set));
-//	printf("ft_strtrim returns :%s:\n ", ft_strtrim(strtrim_string2, set2));
-//	/* End of ft_strtrim */
+
+	/* Testing ft_strtrim */
+	char	strtrim_string[] = "12214____921c1"; 
+	char	set[] = "21c";	
+	char	strtrim_string2[] = ""; 
+	char	set2[] = "";	
+
+	printf("ft_strtrim returns :%s:\n ", ft_strtrim(strtrim_string, set));
+	printf("ft_strtrim returns :%s:\n ", ft_strtrim(strtrim_string2, set2));
+	/* End of ft_strtrim */
 
 //	/* Testing of strmapi */
 //	

@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lclerc <lclerc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:20:30 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/09 14:53:37 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/22 17:31:33 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
 /* 
  *	ft_strjoin() is returning a new string out of the concatenation of s1 and s2.
@@ -21,13 +20,15 @@
  *	Malloc can be used.
  * */
 
-char *ft_strjoin(char const *s1, char const *s2)
+#include "libft.h"
+
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*joined_string;
 	size_t	joined_string_length;
 
 	if (!s1 || !s2)
-		return(NULL);
+		return (NULL);
 	joined_string_length = ft_strlen(s1) + ft_strlen(s2) + 1;
 	joined_string = (char *)malloc(joined_string_length * sizeof(char) + 1);
 	if (joined_string == NULL)
@@ -36,4 +37,3 @@ char *ft_strjoin(char const *s1, char const *s2)
 	ft_strlcat(joined_string, s2, joined_string_length);
 	return (joined_string);
 }
-

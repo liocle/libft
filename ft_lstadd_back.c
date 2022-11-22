@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lclerc <lclerc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 12:01:48 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/22 13:02:52 by lclerc           ###   ########.fr       */
+/*   Created: 2022/11/18 16:00:22 by lclerc            #+#    #+#             */
+/*   Updated: 2022/11/22 17:41:52 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
-{
-	long	result;
-	int		sign;
+/*
+ * ft_lstadd_back() adds the node new at the end of the list.
+ *
+ * 'lst' is the address of a pointer to the first link of a list
+ * 'new' is the address of a pointer to the node to be added to the list.
+ *
+ */
 
-	result = 0;
-	sign = 1;
-	while ((*str == 32) || ((*str >= 9) && (*str <= 13)))
-		str++;
-	if (*str == '-')
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*last;
+
+	if (!*lst)
 	{
-		sign = -1;
+		*lst = new;
+		return ;
 	}
-	if (*str == '+' || *str == '-')
-		str++;
-	while (*str >= '0' && *str <= '9')
-	{
-		result = result * 10 + *str - '0';
-		str++;
-	}
-	return ((int)(result * sign));
+	last = ft_lstlast(*lst);
+	last->next = new;
+	return ;
 }

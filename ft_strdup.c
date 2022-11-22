@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lclerc <lclerc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:31:02 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/09 13:19:59 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/22 17:27:38 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
  * The strdup() function allocatees sufficient memory for a copy of the string
@@ -21,15 +19,17 @@
  * ENOMEM (not enough space/cannot allocate memory). 
  */
 
+#include "libft.h"
+
 char	*ft_strdup(const char *s1)
 {
-	char *duplicate;
-	int	length_s1;
+	char	*duplicate;
+	int		length_s1;
 
 	length_s1 = ft_strlen(s1);
-	duplicate = (char*)malloc(length_s1 * sizeof(char) + 1);
+	duplicate = (char *)malloc(length_s1 * sizeof(char) + 1);
 	if (duplicate == NULL)
-		return(NULL);
+		return (NULL);
 	duplicate[length_s1] = '\0';
 	while (length_s1)
 	{
@@ -38,4 +38,3 @@ char	*ft_strdup(const char *s1)
 	}
 	return (duplicate);
 }
-

@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lclerc <lclerc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 12:01:48 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/22 13:02:52 by lclerc           ###   ########.fr       */
+/*   Created: 2022/11/18 13:51:35 by lclerc            #+#    #+#             */
+/*   Updated: 2022/11/22 17:43:08 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+ * ft_lstsize() counts the number of nodes in a list.
+ *
+ * 'lst' refers to the beginning of the list.
+ * Return value, is the length of the list.
+ *
+ */
+
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+int	ft_lstsize(t_list *lst)
 {
-	long	result;
-	int		sign;
+	int	i;
 
-	result = 0;
-	sign = 1;
-	while ((*str == 32) || ((*str >= 9) && (*str <= 13)))
-		str++;
-	if (*str == '-')
+	i = 0;
+	while (lst)
 	{
-		sign = -1;
+		i++;
+		lst = lst->next;
 	}
-	if (*str == '+' || *str == '-')
-		str++;
-	while (*str >= '0' && *str <= '9')
-	{
-		result = result * 10 + *str - '0';
-		str++;
-	}
-	return ((int)(result * sign));
+	return (i);
 }

@@ -1,16 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lclerc <lclerc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 13:51:35 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/18 15:15:33 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/22 17:43:20 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 /*
  * ft_lstsize() counts the number of nodes in a list.
@@ -20,9 +18,11 @@
  *
  */
 
+#include "libft.h"
+
 int	ft_lstsize(t_list *lst)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (lst)
@@ -32,4 +32,3 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (i);
 }
-

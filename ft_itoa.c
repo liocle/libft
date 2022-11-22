@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lclerc <lclerc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 10:04:02 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/10 16:07:21 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/22 17:32:57 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
 /*
  * itoa() converts an integer to a string.
@@ -21,6 +20,8 @@
  * malloc can be used. 
  */
 
+#include "libft.h"
+
 int	get_length(long n)
 {
 	int	length;
@@ -30,7 +31,7 @@ int	get_length(long n)
 		return (1);
 	if (n < 0)
 		length++;
-	while (n)		
+	while (n)
 	{
 		n = n / 10;
 		length++;
@@ -41,7 +42,7 @@ int	get_length(long n)
 char	*ft_itoa(int n)
 {
 	char	*ascii_string;
-	int	length;
+	int		length;
 	long	number;
 
 	number = n;
@@ -61,6 +62,5 @@ char	*ft_itoa(int n)
 		number = number / 10;
 	}
 	ascii_string[length] = number + '0';
-
 	return (ascii_string);
 }

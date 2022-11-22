@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lclerc <lclerc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 12:15:51 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/16 13:49:40 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/22 13:03:45 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
 /*
  * The calloc() contiguously allocates enough space for count objects that
@@ -29,11 +28,13 @@
  * or a unique pointer value that can later be successfully passed to free().
  */
 
+#include "libft.h"
+
 void	*ft_calloc(size_t count, size_t size)
 {
 	char	*pointer_to_allocated_memory;
-	
-	if (count != 0 && size != 0 && count * size / size != count )
+
+	if (count != 0 && size != 0 && count * size / size != count)
 		return (NULL);
 	pointer_to_allocated_memory = (void *)malloc(size * count);
 	if (pointer_to_allocated_memory == NULL)

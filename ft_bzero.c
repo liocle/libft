@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lclerc <lclerc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 12:01:44 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/02 08:43:02 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/22 13:01:42 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
-		ft_memset(s, 0, n);
+	ft_memset((void *)s, 0, n);
 }
-		

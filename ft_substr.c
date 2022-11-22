@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lclerc <lclerc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 14:24:56 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/16 15:44:31 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/22 17:30:18 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
 /*
  * ft_substr() allocates with malloc() and returns a string of characters from
@@ -21,14 +20,16 @@
  *
  */
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+#include "libft.h"
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*new_string;
 	size_t	str_len;
 	size_t	i;		
 
 	i = 0;
-	if(!s)
+	if (!s)
 		return (NULL);
 	str_len = ft_strlen(s);
 	if (start > str_len)
@@ -43,6 +44,6 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 		new_string[i] = s[start + i];
 		i++;
 	}
-	new_string[i]= '\0';
+	new_string[i] = '\0';
 	return (new_string);
 }

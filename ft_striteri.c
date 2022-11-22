@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lclerc <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lclerc <lclerc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:42:08 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/15 14:33:37 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/22 17:33:11 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
 /* 
  * Applies the function 'f' on each character of the string passed as argument,
@@ -18,13 +17,15 @@
  *
  */
 
+#include "libft.h"
+
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (!s)
-		return;
+		return ;
 	while (s[i])
 	{
 		f((unsigned int) i, &s[i]);

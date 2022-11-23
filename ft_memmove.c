@@ -6,7 +6,7 @@
 /*   By: lclerc <lclerc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 10:49:44 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/22 17:26:39 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/23 16:17:45 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
  * strings may overlap. If the beginning of destination overlaps with end of the
  * source, copying  should be done backward.
  *
- * */
+ * The difference here with memcpy() is that if the source pointer is located 
+ * before the destination pointer, it is needed to start copying from 'len'
+ * to avoid overlapping.
+ *
+ */
 
 #include "libft.h"
 

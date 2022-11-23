@@ -6,7 +6,7 @@
 /*   By: lclerc <lclerc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 16:14:13 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/22 17:29:30 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/23 16:02:48 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
  * less than the string s2.  The comparison is done using unsigned characters, 
  * so that `\200' is greater than `\0'.
  */
+
 #include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)

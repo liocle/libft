@@ -6,24 +6,19 @@
 /*   By: lclerc <lclerc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 08:47:54 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/22 17:24:59 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/23 16:11:57 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
  *	memcpy() copies n bytes from memory area src to memory area dst. If dst and 
  *	src overlap, behaviour is undefined, even though some compilers may handle 
- *	it. This is the main difference with memmove(), which can handle overlapping 
+ *	it. This is the main difference with memmove(), which can handle overlapping
  *	memory addresses using a buffer. See memmove()
  *
- *	Should I remove from the prototypes the restrict part (exclude C99)? instru
- *	ctions may lead me to think yes, but man memcpy shows that the standard is 
- *	IS0 C90, what to do? Here I removed it.
- *
- * 	Beware the headers prototype has been modified acccordingly!
- *
  *	memcpy() function returns the original value of dst.
- * */
+ *
+ */
 
 #include "libft.h"
 

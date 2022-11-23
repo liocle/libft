@@ -6,7 +6,7 @@
 /*   By: lclerc <lclerc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 15:18:03 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/22 17:23:15 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/23 15:37:09 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 #include "libft.h"
 
-static int	find_start(char const *s1, char const *set)
+int	find_start(char const *s1, char const *set)
 {
 	size_t	i;
 	int		end;

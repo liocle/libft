@@ -6,16 +6,14 @@
 /*   By: lclerc <lclerc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 14:41:44 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/22 17:24:06 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/23 16:07:45 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Since we cannot manipulate direcly the void *b parameter, let's create a char
- * string pointer_to_b. It is set equal to a char casted version of b.
+/* 
+ * memset() function writes 'len' bytes of value 'c' (converted to an unsigned
+ * char) to a string 'b'.
  *
- * Should the string lenght be used and compared to len? 
- *
- * How wrong it is to not typecast void *b into (char *) for pointer_to_b ? 
  * */
 
 #include "libft.h"

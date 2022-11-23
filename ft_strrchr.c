@@ -6,9 +6,18 @@
 /*   By: lclerc <lclerc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 15:35:11 by lclerc            #+#    #+#             */
-/*   Updated: 2022/11/22 16:04:00 by lclerc           ###   ########.fr       */
+/*   Updated: 2022/11/23 15:58:26 by lclerc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+ * strrchr() is similar to strchr() except that it locates the last occurence of
+ * 'c'.
+ *
+ * The function returns a pointer to the located character, or NULL if character
+ * is not found in the string.
+ *
+ */
 
 #include "libft.h"
 

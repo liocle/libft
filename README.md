@@ -1,6 +1,6 @@
 # libft
 
-A custom C library containing various standard functions implemented from scratch. This library is part of a programming project inspired by the 42 school curriculum.
+A custom C library containing various standard functions implemented from scratch. This library is part of a programming project from the 42 school curriculum.
 
 ## Table of Contents
 - [Introduction](#introduction)

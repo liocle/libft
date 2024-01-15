@@ -80,7 +80,7 @@ To use this library in a C projects, simply include the appropriate header file 
 
 3. Link a project with `libft.a` archive:
    ```bash
-  gcc -o your_program your_source.c -L. -lft
+     gcc -o your_program your_source.c -L. -lft
 
 ## Example
 ```c

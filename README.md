@@ -72,7 +72,7 @@ To use this library in a C projects, simply include the appropriate header file 
 
 1. Clone the repository:
    ```bash
-   git clone [git@github.com:liocle/libft.git]
+   git clone git@github.com:liocle/libft.git
 
 2. Build the library:
    ```bash
@@ -80,14 +80,14 @@ To use this library in a C projects, simply include the appropriate header file 
 
 3. Link a project with `libft.a` archive:
    ```bash
-     gcc -o your_program your_source.c -L. -lft
+   gcc -o your_program your_source.c -L. -lft
 
 ## Example
 ```c
 #include "libft.h"
 
 int main() {
-    char *str = "Hello, libft!";
+    char *str = "Hello World!";
     ft_putstr_fd(str, 1);
 
     return 0;
